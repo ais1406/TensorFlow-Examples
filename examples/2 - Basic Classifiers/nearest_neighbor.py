@@ -10,8 +10,8 @@ import numpy as np
 import tensorflow as tf
 
 # Import MINST data
-import input_data as dataset
-mnist = dataset.read_data_sets("/tmp/data/", one_hot=True)
+import input_data
+mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
 # In this example, we limit mnist data
 Xtr, Ytr = mnist.train.next_batch(5000) #5000 for training (nn candidates)

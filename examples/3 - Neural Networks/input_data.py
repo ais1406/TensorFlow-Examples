@@ -2,7 +2,7 @@
 from __future__ import print_function
 import gzip
 import os
-import urllib
+from urllib import request
 import numpy
 SOURCE_URL = 'http://yann.lecun.com/exdb/mnist/'
 def maybe_download(filename, work_directory):
@@ -11,7 +11,7 @@ def maybe_download(filename, work_directory):
     os.mkdir(work_directory)
   filepath = os.path.join(work_directory, filename)
   if not os.path.exists(filepath):
-    filepath, _ = urllib.urlretrieve(SOURCE_URL + filename, filepath)
+    filepath, _ = request.urlretrieve(SOURCE_URL + filename, filepath)
     statinfo = os.stat(filepath)
     print('Succesfully downloaded', filename, statinfo.st_size, 'bytes.')
   return filepath
